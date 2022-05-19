@@ -1,0 +1,22 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: replicapod
+
+spec:
+  replicas: 2
+  selector:
+    matchExpressions:
+      - {key: myname, operator: In, values: [kpslab,KPLABS, KpsLab]}
+      - {key: env, operator: NotIn, values: [Development]}
+    
+  template:
+    metadata:
+      name:  demotemplate
+      labels:
+        myname:  kpslab
+        env: Development1
+    spec:
+      containers:
+        - name:  co1
+          image: ubuntu

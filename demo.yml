@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: testing-updated
+  labels:
+    project: crest
+
+
+spec:
+  containers:
+    - name: container1
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello Team.!; sleep 5; done"]
+
+  restartPolicy: Never
+
+

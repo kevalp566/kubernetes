@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: deployment-pod
+
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: deployment
+  template:
+    metadata:
+       name: testpod
+       labels:
+         name: deployment
+    spec:
+      containers:
+        - name: msg1
+          image: kevalp566/getting-started
+          ports:
+            - containerPort: 3000
+
+
+

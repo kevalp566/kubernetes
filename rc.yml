@@ -1,0 +1,26 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: replication-controller
+
+spec:
+  replicas: 1
+  selector:
+     name: delta
+
+  template:
+    metadata:
+      name: rc-template
+      labels:
+        name: delta
+        org: crest
+        team: sre
+    spec: 
+      containers:
+        - name: co1
+          image: ubuntu
+          command: ["/bin/bash","-c", "while true; do echo Hello; sleep 5; done"]
+
+
+
+

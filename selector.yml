@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: selector
+  labels:
+    org: kpslab
+
+spec:
+  containers:
+     - name: labelpod
+       image: ubuntu
+       command: ["/bin/bash","-c", "while true; do echo Hello; sleep 5; done"]
+      
+       
+       env:
+         - name: MYNAME
+           value: Kartavya
+         - name: SURNAME
+           value: Patel
+
+  nodeSelector:   
+    organization: crest  
+  
